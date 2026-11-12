@@ -1,0 +1,29 @@
+# Scratch discipline backstop (mirrors ~/.gitignore_global)
+scratch/
+*.scratch.md
+tmp/
+.aider*
+CLAUDE.local.md
+
+# Secrets and local env
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+
+# OS / editor noise
+.DS_Store
+
+# worktrunk feature worktrees (worktree-path in ~/.config/worktrunk/config.toml)
+.claude/worktrees/

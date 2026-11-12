@@ -1,0 +1,16 @@
+{
+  "name": "quiver",
+  "owner": {
+    "name": "Sandro"
+  },
+  "metadata": {
+    "description": "Quiver: a curated pool of saved commands for the Claude Code prompt"
+  },
+  "plugins": [
+    {
+      "name": "quiver",
+      "description": "Pick a saved command from a curated TOML pool and insert it into the Claude Code prompt",
+      "source": "./"
+    }
+  ]
+}

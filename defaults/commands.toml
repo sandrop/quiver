@@ -1,0 +1,191 @@
+# quiver starter pack. Install with `python3 cli/quiver.py init`; it copies
+# this file to ~/.config/sct/quiver/commands.toml and never overwrites.
+# Shell entries start with `! ` so Claude Code runs them as shell commands; each
+# is read-only and uses stock macOS and Debian/Ubuntu tools or `claude`. Slash
+# commands and prose replies insert as typed. The sct tooling entries need the
+# cobtask-workflow, cobtask-review and context-window-manager plugins.
+# Modeled on Pet (https://github.com/knqyf263/pet) by knqyf263.
+
+
+
+# sct tooling
+[[command]]
+label = "context-window-manager:handoff"
+command = "/context-window-manager:handoff"
+tags = ["command", "context", "sp"]
+
+[[command]]
+label = "cobtask-new"
+command = "/cobtask-workflow:cobtask-new"
+tags = ["command", "cobtask", "sp"]
+
+[[command]]
+label = "cobtask-start"
+command = "/cobtask-workflow:cobtask-start"
+tags = ["command", "cobtask", "sp"]
+
+[[command]]
+label = "cobtask-review"
+command = "/cobtask-review:cobtask-review"
+tags = ["command", "cobtask", "sp"]
+
+[[command]]
+label = "cobtask-close"
+command = "/cobtask-workflow:cobtask-close"
+tags = ["command", "cobtask", "sp"]
+
+
+# misc prose instructions
+[[command]]
+label = "continue with option 1"
+command = "continue with option 1"
+tags = ["prose", "instructions"]
+
+[[command]]
+label = "what do you recommend?"
+command = "what do you recommend?"
+tags = ["prose", "instructions"]
+
+[[command]]
+label = "done with this session?"
+command = "done with this session?"
+tags = ["prose", "instructions"]
+
+[[command]]
+label = "git merge commit and cleanup"
+command = "git merge commit and cleanup"
+tags = ["prose", "instructions", "git"]
+
+[[command]]
+label = "ask me again"
+command = "askuserquestion again"
+tags = ["prose", "instructions"]
+
+
+
+
+# claude
+[[command]]
+label = "session rename"
+command = "/rename "
+tags = ["claude"]
+
+[[command]]
+label = "Claude Code version"
+command = "! claude --version"
+tags = ["claude"]
+
+[[command]]
+label = "Claude Code health check"
+command = "! claude doctor"
+tags = ["claude"]
+
+[[command]]
+label = "MCP servers"
+command = "! claude mcp list"
+tags = ["claude"]
+
+[[command]]
+label = "Installed plugins"
+command = "! claude plugin list"
+tags = ["claude"]
+
+[[command]]
+label = "Plugin marketplaces"
+command = "! claude plugin marketplace list"
+tags = ["claude"]
+
+[[command]]
+label = "model claude-sonnet-5-5[1m]"
+command = "/model claude-sonnet-5-5[1m]"
+tags = ["command", "env", "claude"]
+
+[[command]]
+label = "model claude-opus-5-5[1m]"
+command = "/model claude-opus-5-5[1m]"
+tags = ["command", "env", "claude"]
+
+[[command]]
+label = "model claude-fable-5[1m]"
+command = "/model claude-fable-5[1m]"
+tags = ["command", "env", "claude"]
+
+
+# git
+[[command]]
+label = "Git status (short)"
+command = "! git status -sb"
+tags = ["git"]
+
+[[command]]
+label = "Git log (last 20)"
+command = "! git log --oneline -n 20"
+tags = ["git"]
+
+[[command]]
+label = "Git log graph (all branches)"
+command = "! git log --oneline --graph --all -n 30"
+tags = ["git"]
+
+[[command]]
+label = "Git diff stat"
+command = "! git diff --stat"
+tags = ["git"]
+
+[[command]]
+label = "Git staged diff"
+command = "! git diff --cached"
+tags = ["git"]
+
+[[command]]
+label = "Git branches with upstream"
+command = "! git branch -vv"
+tags = ["git"]
+
+[[command]]
+label = "Git remotes"
+command = "! git remote -v"
+tags = ["git"]
+
+[[command]]
+label = "Git stash list"
+command = "! git stash list"
+tags = ["git"]
+
+# files and search
+[[command]]
+label = "Files changed in the last day"
+command = "! find . -type f -mtime -1"
+tags = ["files", "search"]
+
+
+[[command]]
+label = "Grep TODOs with line numbers"
+command = "! grep -rn TODO ."
+tags = ["search"]
+
+[[command]]
+label = "Files containing TODO"
+command = "! grep -rl TODO ."
+tags = ["search"]
+
+# net
+[[command]]
+label = "Hostname"
+command = "! hostname"
+tags = ["net"]
+
+[[command]]
+label = "Ping 1.1.1.1 three times"
+command = "! ping -c 3 1.1.1.1"
+tags = ["net"]
+
+[[command]]
+label = "HTTP headers for a URL"
+command = "! curl -sI https://example.com"
+tags = ["net"]
+
+[[command]]
+label = "Proxy environment variables"
+command = "! env | grep -i proxy"
+tags = ["net"]

@@ -1,0 +1,18 @@
+{
+  "name": "quiver",
+  "version": "0.10.0",
+  "version-date": "2026-11-12",
+  "description": "Pick a saved command from a curated TOML pool and insert it into the Claude Code prompt",
+  "types": "./types/index.d.ts",
+  "author": {
+    "name": "Sandro"
+  },
+  "repository": "https://github.com/sandrop/quiver",
+  "license": "MIT",
+  "keywords": [
+    "commands",
+    "snippets",
+    "toml",
+    "mod"
+  ]
+}
