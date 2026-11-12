@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10.1 - 2026-11-12
+
+- The README drops its private-repo note now that `sandrop/quiver` is public (QVR-0015).
+
 ## 0.10.0 - 2026-11-12
 
 - First public release, from `sandrop/quiver`. The README install section now names that repo and its `quiver` marketplace; the dev install routes are gone (QVR-0006).

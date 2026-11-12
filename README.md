@@ -17,8 +17,6 @@ claude plugin marketplace add sandrop/quiver
 claude plugin install quiver@quiver
 ```
 
-The repo stays private until first-release testing ends.
-
 Quiver needs Python 3.11 or newer, for `tomllib`. On an older interpreter the
 selector prints `error [python]: quiver needs Python 3.11+, got 3.9` and exits 2.
 
