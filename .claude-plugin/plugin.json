@@ -1,6 +1,6 @@
 {
   "name": "quiver",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "version-date": "2026-11-12",
   "description": "Pick a saved command from a curated TOML pool and insert it into the Claude Code prompt",
   "types": "./types/index.d.ts",

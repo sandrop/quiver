@@ -20,7 +20,7 @@ import sys
 MIN_PYTHON = (3, 11)
 
 
-def python_error(version: tuple[int, ...]) -> str | None:
+def python_error(version: tuple[int | str, ...]) -> str | None:
     if tuple(version[:2]) < MIN_PYTHON:
         return (
             f"error [python]: quiver needs Python 3.11+, got {version[0]}.{version[1]}"

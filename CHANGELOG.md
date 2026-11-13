@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10.2 - 2026-11-12
+
+- `python_error` accepts `sys.version_info` as typed, so a whole-project pyright run reports 0 errors (QVR-0018).
+
 ## 0.10.1 - 2026-11-12
 
 - The README drops its private-repo note now that `sandrop/quiver` is public (QVR-0015).
