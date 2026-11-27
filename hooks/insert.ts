@@ -6,13 +6,22 @@ export type Insertion =
 	| { via: "none"; reason: string };
 
 // The one insertion path list mode and pane mode both call. It writes the
-// draft at the cursor and never submits, runs or calls a tool.
+// draft at the cursor and never submits, runs or calls a tool. A filled `!`
+// never enters bash mode, only a typed one does, so a shell entry also tells
+// the person to retype it.
 export async function insertCommand(
 	$: EngineInterface,
 	command: string,
 ): Promise<Insertion> {
 	const filled = await $.prompt.fill({ text: command, mode: "insert" });
-	if (filled.isFilled) return { via: "prompt" };
+	if (filled.isFilled) {
+		if (command.startsWith("! ")) {
+			$.ui.toast(
+				"quiver: shell entry inserted; delete the ! and type it again to run it in the shell",
+			);
+		}
+		return { via: "prompt" };
+	}
 
 	// A hook's refusal carries no cause: an absent one reads as plain refused.
 	const reason = filled.refusal ?? "refused";

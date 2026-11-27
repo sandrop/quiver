@@ -69,9 +69,11 @@ python3 cli/quiver.py init [--config PATH]
 
 Entries come in three kinds, since quiver inserts the text as typed:
 
-- Shell entries start with `! `, so Claude Code runs them in the shell. Each is
-  read-only and uses git, `claude` or tools on stock macOS and Debian/Ubuntu,
-  with no GNU-only or BSD-only flags.
+- Shell entries start with `! `, the Claude Code shell prefix. Claude Code
+  enters shell mode only on a typed `!`, so retype it before you press Enter
+  (see [Inserting a command](#inserting-a-command)). Each is read-only and uses
+  git, `claude` or tools on stock macOS and Debian/Ubuntu, with no GNU-only or
+  BSD-only flags.
 - Slash commands such as `/rename ` and `/model ...`. The sct tooling group
   calls `/cobtask-workflow:*`, `/cobtask-review:*` and
   `/context-window-manager:*`, which need those plugins installed.
@@ -134,6 +136,18 @@ output is JSON:
 Quiver puts the command into the prompt. Nothing is ever submitted or run: you
 read the command, edit it if you like, and press Enter yourself.
 
+A shell entry lands as plain text: Claude Code switches the prompt to shell
+mode only when you type `!` yourself, and no plugin can do that for you. Quiver
+inserts it and a toast tells you to retype the `!`:
+
+```text
+quiver: shell entry inserted; delete the ! and type it again to run it in the shell
+```
+
+Move to the start of the prompt, delete the `!`, type `!` again, then press
+Enter to run the command in the shell. Pressing Enter without retyping sends
+the text to the model as a message.
+
 When the prompt cannot take the text (a dialog holds the keys, or the session
 has no prompt box), quiver copies the command to the clipboard and a toast
 says so:
@@ -173,6 +187,19 @@ error [config]: /Users/you/.config/sct/quiver/commands.toml: entry 2: command mu
 
 When the file is missing, the line ends with
 `; run python3 <path to quiver.py> init for a starter pack`.
+
+## Known limitations
+
+### Inserted shell entries do not run as shell commands
+
+An inserted entry that starts with `!` arrives in the prompt as plain text, so
+pressing Enter sends it to the model as a message instead of running it in the
+shell. Claude Code enters shell mode only when you type `!` yourself, and no
+plugin API can switch the prompt into shell mode.
+
+Workaround: after inserting, move to the start of the prompt (Control-A on
+macOS), delete the `!`, type `!` again, then press Enter. Quiver shows a toast
+reminding you to do this (see [Inserting a command](#inserting-a-command)).
 
 ## Acknowledgements
 

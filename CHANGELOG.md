@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10.3 - 2026-11-20
+
+- Inserting a `! ` shell entry now shows a toast telling the person to retype the `!`, since Claude Code enters shell mode only on a typed `!` and no mod API call can switch it; the README says the same (QVR-0019).
+
 ## 0.10.2 - 2026-11-12
 
 - `python_error` accepts `sys.version_info` as typed, so a whole-project pyright run reports 0 errors (QVR-0018).
